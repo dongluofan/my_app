@@ -1,8 +1,9 @@
 MyProject::Application.routes.draw do
-match'/contact', :to=>'pages#about'
-match'/contact', :to=>'pages#home'
 match'/contact', :to=>'pages#contact'
-root:to=>'page#home'
+match'/about', :to=>'pages#about'
+match'/help', :to=>'pages#help'
+match'/home', :to=>'pages#home'
+root :to => 'pages#home'
   resources :users
 
 
