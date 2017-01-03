@@ -5,7 +5,7 @@
 	<h1>
 	  <%= @user.name %>
 	</h1>
-	  <% if !@user.microposts.empty? %>
+	  <% if !@user.microposts.nil? %>
 	    <table class="microposts">
 	      <%= render @microposts %>
 	    </table>
