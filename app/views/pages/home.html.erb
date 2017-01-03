@@ -1,7 +1,23 @@
-
-    <h1>Sample App</h1>
-	<p>
-		This is the home page
-	</p>
+<% if current_user.nil? %>
+	<p>This is the home page for my demo app.</p>
 	<%= link_to 'Sign up now!', signup_path, :class => 'signup_button round' %>
-	<%=link_to "Show all users", users_path %>
+<% else %>
+	<table class="front">
+	  <tr>
+	    <td class="main">
+		<h1 class="micropost">What's up</h1>
+		<%= form_for(@micropost) do |f| %>
+		  <div class="field">
+		    <%= f.text_area :content %>
+		  </div>
+		  <div class="actions" %>	
+		    <%= f.submit "Submit" %>
+		  </div>
+		<% end %>
+	    <td class="sidebar round">
+		<a href="<%= user_path(current_user) %>"><%= current_user.name %></a>
+		<br/>Microposts: <%=current_user.microposts.count %>
+	    </td>
+	  </tr>
+	<% end %>
+	<%= link_to "Show all users", users_path %>

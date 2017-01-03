@@ -3,5 +3,5 @@
 	<p>
 		This is the home page
 	</p>
-	<%=link_to "Sign up now!", signup_path, :class => "signup_botton round"%>
+	<%= link_to 'Sign up now!', signup_path, :class => 'signup_button round' %>
 	<%=link_to "Show all users", users_path %>

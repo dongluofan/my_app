@@ -60,7 +60,7 @@ public
    
       if @user.save
       sign_in @user
-      redirect_user @user
+      redirect_to @user
       else
        @title = "Sign UP"
 	render "new"

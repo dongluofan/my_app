@@ -1,5 +1,29 @@
-<p id="notice"><%= notice %></p>
 
+<table class="profile">
+  <tr>
+    <td class="main">
+	<h1>
+	  <%= @user.name %>
+	</h1>
+	  <% if !@user.microposts.empty? %>
+	    <table class="microposts">
+	      <%= render @microposts %>
+	    </table>
+	  <% end %>
+    </td>
+    <td class="sidebar round">
+	<strong>Name</strong> <%= @user.name %><br/>
+	<strong>Email</strong> <%= @user.email %><br/>
+	<strong>URL</strong> <%= link_to user_path(@user),@user %><br/>
+	<strong>Microposts</strong> <%= @user.microposts.count %>
+	<% if current_user == @user %>
+	  <br/>
+	  <%= link_to "Edit My Info", edit_user_path(@user) %>
+	<% end %>
+    </td>
+  </tr>
+</table>
+<p id="notice"><%= notice %></p>
 <p>
   <b>Name:</b>
   <%= @user.name %>
@@ -9,7 +33,5 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
-
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
