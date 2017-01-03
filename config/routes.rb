@@ -1,8 +1,8 @@
 MyProject::Application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/contact"
-
+match'/contact', :to=>'pages#about'
+match'/contact', :to=>'pages#home'
+match'/contact', :to=>'pages#contact'
+root:to=>'page#home'
   resources :users
 
 
