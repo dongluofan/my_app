@@ -19,7 +19,7 @@
   </tr>
 <% end %>
 </table>
-
+<h4><%= @users.count %> <%=" users have signed up!"%></h4>
 <br />
 
 

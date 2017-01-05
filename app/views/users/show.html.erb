@@ -10,8 +10,8 @@
   </tr>
 	<tr>
   	<td class="micropost">
-   	<span class="title">Title: <%= micropost.title %></span><br/>
-   	 <span class="content"><%= micropost.content %></span><br/>
+   	<h3><span class="title">Title: <%= micropost.title %></span><br/>
+   	 <span class="content"><%= micropost.content %></span><br/></h3>
 	 <%if micropost.commends.count!= 0%>
 	   <% micropost.commends.each do |commend|%>
 	   </tr>
@@ -29,7 +29,8 @@
 	<% end %>
 	<br/>
    	 <span class="timestamp">
-	Posted at <%= micropost.created_at %>
+	Posted at <%= micropost.created_at %><br/> <%= micropost.commends.count%>
+	<%="comments"%>
 	<% if current_user == micropost.user %>
 	  <%= link_to "Delete",micropost, :method => :delete,
 						  :confirm => "Are you sure?",	

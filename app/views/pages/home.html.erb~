@@ -1,7 +1,7 @@
 
 
 <% if current_user.nil? %>
-	<p>This is the home page for my demo app.</p>
+	
 	<%= link_to 'Sign up now!', signup_path, :class => 'signup_button round' %>
 <% else %>
 	<table class="front">
