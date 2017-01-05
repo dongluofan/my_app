@@ -30,7 +30,12 @@ end
 	end
 	
 	def destroy  
+	  @user=@micropost.user
+	  @commends=@micropost.commends
+	  @commends.each do |commend|
+	     commend.destroy	
+	  end
 	  @micropost.destroy	  
-	  render 'pages/home'
+	  redirect_to user_path(@user)
 	end
 end
