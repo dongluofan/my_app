@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name
 	attr_accessor :password
 	attr_accessible :email, :name, :password, :password_confirmation
-	has_many :microposts, :dependent: :destroy
-	has_many :commends, :dependent: :destroy
+	has_many :microposts, :dependent => :destroy
+	has_many :commends, :dependent => :destroy
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :name, :presence => true, 
 			:length => { :maximum =>50 }

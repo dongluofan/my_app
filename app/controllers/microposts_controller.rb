@@ -30,12 +30,9 @@ end
 	end
 	
 	def destroy  
-	  @commends=@micropost.commends
+	  @user=@micropost.user
 	  
 	  @micropost.destroy	
-       	  
-	  expect(@commends).to be_nil
-	   
 	  redirect_to user_path(@user)
 	end
 end
