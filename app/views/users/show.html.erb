@@ -18,13 +18,11 @@
   	   <td class="commend">
 	   <div style="text-indent:2em">
    	    <span class="content"> 
-		
-		<%= commend.content %></span></div>
-		
+		<%= link_to commend.user.name,user_path(commend.user)%>: 
+		<%= commend.content %></span></div>	
 		
 		<div style="text-indent:2em">
-		<%= "commented "%>
-   	  
+		<%= "commented "%>	  
 	    <span class="timestamp">
 	        at <%= commend.created_at %>
 	   <% if current_user == commend.user %>
