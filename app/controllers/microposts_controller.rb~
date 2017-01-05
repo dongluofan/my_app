@@ -30,11 +30,12 @@ end
 	end
 	
 	def destroy  
-	  @user=@micropost.user
-	  if(@micropost !nil)
-       	  expect(Miropost.find(params[:id])).to be_nil
+	  @commends=@micropost.commends
+	  
 	  @micropost.destroy	
-	  end  
+       	  
+	  expect(@commends).to be_nil
+	   
 	  redirect_to user_path(@user)
 	end
 end
