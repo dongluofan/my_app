@@ -11,21 +11,26 @@
 	<tr>
   	<td class="micropost">
    	<h3><span class="title">Title: <%= micropost.title %></span><br/>
-   	 <span class="content"><%= micropost.content %></span><br/></h3>
+   	 <span class="content"><%= micropost.content %></span></h3>
 	 <%if micropost.commends.count!= 0%>
 	   <% micropost.commends.each do |commend|%>
 	   </tr>
   	   <td class="commend">
+
 	   <div style="text-indent:2em">
-   	    <span class="content">Comment:<%= commend.content %></span><br/>
-   	    <span class="timestamp">
-	          commented at <%= commend.created_at %>
+   	    <span class="content">Comment:<%= commend.content %></span></div>
+		<div style="text-indent:2em">
+		<%= "commented by "%>
+		<%= link_to commend.user.name,user_path(commend.user)%>
+   	   
+	    <span class="timestamp">
+	        at <%= commend.created_at %>
 	   <% if current_user == commend.user %>
 	         <%= link_to "Delete",commend, :method => :delete,
 						  :confirm => "Are you sure?",	
 						:title => commend.content %><br/></div>
 	   <% end %>
-	  <% end %>
+	  <% end %></div>
 	<% end %>
 	<br/>
    	 <span class="timestamp">
