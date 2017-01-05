@@ -7,7 +7,6 @@ resources :commends, :only => [:create, :destroy]
 resources :microposts, :only => [:create, :destroy]
 resources :sessions, :only => [:new, :create, :destroy]
 match'/intertact', :to =>'commends#new'
-#match'/show', :to=>'microposts#show'
 match'/signin', :to=>'sessions#new'
 match'/signout', :to=>'sessions#destroy'
 match'/signup', :to=>'users#new'
