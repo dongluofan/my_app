@@ -1,0 +1,11 @@
+class InfosController < ApplicationController
+  def update
+     @user = User.new(params[:user])
+     @title = "Info"    
+     if @user.save
+	redirect_to user
+	'User was successful updated.' 
+     else
+	notice: 'User was not updated.' 
+  end
+end

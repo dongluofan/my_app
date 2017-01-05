@@ -9,7 +9,7 @@ before_filter :authorized_user, :only => [:destroy]
   end
   
   def authorized_user
-    @micropost = Mcropost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
     if @micropost.user != current_user
 	redirect_to root_path
   end
@@ -17,8 +17,17 @@ end
 
 
   public
+     def show
+          @micropost = Micropost.find(params[:id])	  
+	  @commends = @micropost.commends  
+          respond_to do |format|
+          format.html # show.html.erb
+          format.json { render json: @microposts } 
+    end
+     end
+
 	def create
-	  @micropost = current_user.microposts.build(params[:micropost])
+	  @micropost = current_user.microposts.build(params[:micropost])	  
 	  if @micropost.save
 		flash[:success] = "Micropost created"
 		redirect_to root_path

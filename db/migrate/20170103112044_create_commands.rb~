@@ -1,0 +1,11 @@
+class CreateCommands < ActiveRecord::Migration
+  def change
+    create_table :commands do |t|
+      t.string :content
+      t.integer :user_id
+      t.ingeger :micropost_id
+
+      t.timestamps
+    end
+  end
+end

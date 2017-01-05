@@ -1,14 +1,25 @@
 <tr>
   <td class="micropost">
-    <span class="content"><%= micropost.content %></span>
+   <span class="title">Title:<%= micropost.title %></span><br/>
+    <span class="content"><%= micropost.content %></span><br/>
     <span class="timestamp">
 	Posted at <%= micropost.created_at %>
 	<% if current_user == micropost.user %>
 	  <%= link_to "Delete",micropost, :method => :delete,
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
-
 	<% end %>
+	
+	<% if current_user == micropost.user %>
+	 <%= form_for([micropost,@commend]) do |f|%>
+	<div class="field">
+ 	  <%= f.text_field :content %></div>
+	<button class = "btn" type="submit">
+  		 Create
+	</button>
+	<% end %>
+       <% end %>
+  
     </span>
   </td>
 </tr>

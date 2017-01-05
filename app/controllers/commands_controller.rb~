@@ -1,0 +1,29 @@
+class CommendsController < ApplicationController
+before_filter :authenticate, :only => [:create, :destroy]
+before_filter :authorized_user, :only => [:destroy]
+  private
+  def authenticate
+    if current_user.nil?
+	redirect_to signin_path, :notice => "Please sign in"
+    end
+  end
+  
+  def authorized_user
+    @commend = commend.find(params[:id])
+    if @commend.user != current_user
+	redirect_to user
+  end
+end
+public
+    def create
+    @commend = cuurrent_user.micropost.commend.bulid(params[:commend])
+	if @command.save
+	flash[:success] = "Commend successfully"
+	redirect_to user
+	else
+	render users_path
+    def destroy
+	@micropost.destroy
+	redirect_to user
+    end
+end

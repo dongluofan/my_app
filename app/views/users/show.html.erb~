@@ -5,7 +5,7 @@
 	<h1>
 	  <%= @user.name %>
 	</h1>
-	  <% if !@user.microposts.nill? %>
+	  <% if !@user.microposts.nil? %>
 	    <table class="microposts">
 	      <%= render @microposts %>
 	    </table>
@@ -18,9 +18,17 @@
 	<strong>Microposts</strong> <%= @user.microposts.count %>
 	<% if current_user == @user %>
 	  <br/>
-	  <%= link_to "Edit My Info", edit_user_path(@user) %>
+	
+	  <%= link_to "Edit My Count", edit_user_path(@user) %>
 	<% end %>
     </td>
   </tr>
 </table>
-<%= link_to 'Back', users_path %>
+<% if current_user.nil? %>
+<%= link_to 'Sign In to comment', signin_path %>&nbsp&nbsp&nbsp&nbsp&nbsp<% end %><%= link_to 'Back', users_path %>
+
+
+
+
+
+

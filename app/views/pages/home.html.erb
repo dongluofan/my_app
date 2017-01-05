@@ -1,3 +1,5 @@
+
+
 <% if current_user.nil? %>
 	<p>This is the home page for my demo app.</p>
 	<%= link_to 'Sign up now!', signup_path, :class => 'signup_button round' %>
@@ -7,6 +9,8 @@
 	    <td class="main">
 		<h1 class="micropost">What's up</h1>
 		<%= form_for(@micropost) do |f| %>
+		 <div class="field">
+		    <%= f.text_field :title %>
 		  <div class="field">
 		    <%= f.text_area :content %>
 		  </div>
@@ -21,3 +25,4 @@
 	  </tr>
 	<% end %>
 	<%= link_to "Show all users", users_path %>
+

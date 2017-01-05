@@ -14,7 +14,7 @@ namespace :db do
 	  User.all.each do |user|
 	    20.times do
 		content=Faker::Lorem.sentence(5)
-		title=Faker::Name.name
+		title=Faker::Lorem.sentence(2)
 		user.microposts.create(:content =>content,
 				       :title => title)
 	    end

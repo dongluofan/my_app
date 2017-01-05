@@ -1,0 +1,9 @@
+<h1>Commend On<h1>
+<%= form_for @commend do |f| %> 	
+  <div class="field">
+   <%= f.text_area :content %>   
+  </div>
+  <div class="actions" %>		
+    <%= f.submit "Submit" %>
+  </div>
+ <% end %>

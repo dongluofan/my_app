@@ -11,13 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170103080350) do
+ActiveRecord::Schema.define(:version => 20170104020925) do
+
+  create_table "commands", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "commends", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
@@ -27,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20170103080350) do
     t.datetime "updated_at",         :null => false
     t.string   "encrypted"
     t.string   "encrypted_password"
+    t.integer  "telephone"
+    t.integer  "identification"
+    t.string   "interest"
+    t.string   "realname"
+    t.string   "address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

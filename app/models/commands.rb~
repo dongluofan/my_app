@@ -1,0 +1,3 @@
+class Commands < ActiveRecord::Base
+  attr_accessible :content, :micropost_id, :user_id
+end

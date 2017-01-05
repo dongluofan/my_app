@@ -1,0 +1,23 @@
+  <tr>
+  <table class="micropost">
+	      <%= render @micropost %>
+  </table>
+  </tr>
+    <table class="commends">
+	<%= render @commends %>
+    </table>
+        <tr>
+	<td class="sidebar round"><br/>    
+		<a href="<%= user_path(current_user) %>"><%= current_user.name %></a>
+		<br/>Commend: <%=@micropost.commends.count %><br/>  
+       </td>
+       </tr>
+	
+<% if current_user.nil? %>
+	<h3><%= link_to 'Sign up to commend', signup_path %></h3>
+<% else %>
+	 
+	
+	<h3><%= link_to 'commend', intertact_path(@micropost) %></h3>
+
+<% end %>
