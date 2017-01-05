@@ -8,13 +8,17 @@
 	  <%= link_to "Delete",micropost, :method => :delete,
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
-	<% <%  %>
-	<% if current_user == micropost.user %>
+	<% end %>
+	<table class="commend">	
+	<% render @commend %>
+	</table>
+
+	<% if current_user!=nil %>
 	 <%= form_for([micropost,@commend]) do |f|%>
 	<div class="field">
  	  <%= f.text_field :content %></div>
 	<button class = "btn" type="submit">
-  		 Create
+  		 Comment
 	</button>
 	<% end %>
        <% end %>

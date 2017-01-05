@@ -1,8 +1,13 @@
-<td class="commend">
-    <span class="content"><%= commend.content %></span><br/>
-    <span class="timestamp">
-	Posted at <%= commend.created_at %>
+
+	<tr>
+  	<td class="commend">
+   	<span class="content">Comment:<%= commend.content %></span><br/>	
+   	 <span class="timestamp">
+	commented at <%= commend.created_at %><br/>
 	<% if current_user == commend.user %>
 	  <%= link_to "Delete",commend, :method => :delete,
 						  :confirm => "Are you sure?",	
 						:title => commend.content %>
+	<% end %>
+	
+ 

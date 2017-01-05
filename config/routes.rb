@@ -1,7 +1,9 @@
 MyProject::Application.routes.draw do
 resources :microposts do
    resources :commends
+	
 end
+resources :commends, :only => [:create, :destroy]
 resources :microposts, :only => [:create, :destroy]
 resources :sessions, :only => [:new, :create, :destroy]
 match'/intertact', :to =>'commends#new'

@@ -2,15 +2,54 @@
 <table class="profile">
   <tr>
     <td class="main">
-	<h1>
-	  <%= @user.name %>
-	</h1>
+	<h1><%= @user.name %></h1>
 	  <% if !@user.microposts.nil? %>
 	    <table class="microposts">
-	      <%= render @microposts %>
-	    </table>
+	      <% @microposts.each do |micropost| %>
+
+  </tr>
+	<tr>
+  	<td class="micropost">
+   	<span class="title">Title: <%= micropost.title %></span><br/>
+   	 <span class="content"><%= micropost.content %></span><br/>
+	 <%if micropost.commends.count!= 0%>
+	   <% micropost.commends.each do |commend|%>
+	   </tr>
+  	   <td class="commend">
+	   <div style="text-indent:2em">
+   	    <span class="content">Comment:<%= commend.content %></span><br/>
+   	    <span class="timestamp">
+	          commented at <%= commend.created_at %>
+	   <% if current_user == commend.user %>
+	         <%= link_to "Delete",commend, :method => :delete,
+						  :confirm => "Are you sure?",	
+						:title => commend.content %><br/></div>
+	   <% end %>
 	  <% end %>
-    </td>
+	<% end %>
+	<br/>
+   	 <span class="timestamp">
+	Posted at <%= micropost.created_at %>
+	<% if current_user == micropost.user %>
+	  <%= link_to "Delete",micropost, :method => :delete,
+						  :confirm => "Are you sure?",	
+						:title => micropost.content %>
+	<% end %>
+	<% if current_user!=nil %>
+	   <%= form_for([micropost,@commend]) do |f|%>
+	    <div class="field">
+ 	    <%= f.text_field :content %></div>
+	      <button class = "btn" type="submit">
+  		 Comment
+	      </button>
+	      <% end %>
+             <% end %>
+             </span>
+            </td>
+          </tr>
+	<% end %>	   
+     <% end %>
+   </td></table>
     <td class="sidebar round">
 	<strong>Name</strong> <%= @user.name %><br/>
 	<strong>Email</strong> <%= @user.email %><br/>
@@ -23,9 +62,11 @@
 	<% end %>
     </td>
   </tr>
-</table>
-<% if current_user.nil? %>
-<%= link_to 'Sign In to comment', signin_path %>&nbsp&nbsp&nbsp&nbsp&nbsp<% end %><%= link_to 'Back', users_path %>
+  ble>
+  <% if current_user.nil? %>
+  <%= link_to 'Sign In to comment', signin_path %>&nbsp&nbsp&nbsp&nbsp&nbsp
+<% end %>
+<%= link_to 'Back', users_path %>
 
 
 
