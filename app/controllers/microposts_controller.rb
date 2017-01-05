@@ -31,11 +31,10 @@ end
 	
 	def destroy  
 	  @user=@micropost.user
-	  @commends=@micropost.commends
-	  @commends.each do |commend|
-	     commend.destroy	
-	  end
-	  @micropost.destroy	  
+	  if(@micropost !nil)
+       	  expect(Miropost.find(params[:id])).to be_nil
+	  @micropost.destroy	
+	  end  
 	  redirect_to user_path(@user)
 	end
 end
