@@ -17,14 +17,7 @@ end
 
 
   public
-     def show
-          @micropost = Micropost.find(params[:id])	  
-	  @commends = @micropost.commends  
-          respond_to do |format|
-          format.html # show.html.erb
-          format.json { render json: @microposts } 
-    end
-     end
+
 
 	def create
 	  @micropost = current_user.microposts.build(params[:micropost])	  
