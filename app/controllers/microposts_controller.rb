@@ -32,7 +32,7 @@ end
 	def destroy  
 	  @user=@micropost.user
 	  if(@micropost !nil)
-       	  expect(Miropost.find(params[:id])).to be_nil
+       	  expect(@miropost.find(params[:id])).to be_nil
 	  @micropost.destroy	
 	  end  
 	  redirect_to user_path(@user)
