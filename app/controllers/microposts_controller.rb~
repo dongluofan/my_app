@@ -18,7 +18,7 @@ end
 
   public
      def show
-            
+          @micropost = Micropost.find(params[:id])	  
 	  @commends = @micropost.commends  
           respond_to do |format|
           format.html # show.html.erb
@@ -37,7 +37,9 @@ end
 	end
 	
 	def destroy
+	  @user=@micropost.user
 	  @micropost.destroy
-	  redirect_to root_path
+	  
+	  redirect_to user_path
 	end
 end

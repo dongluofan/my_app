@@ -37,7 +37,9 @@ end
 	end
 	
 	def destroy
+	  @user=@micropost.user
 	  @micropost.destroy
-	  redirect_to root_path
+	  
+	  redirect_to user_path(@user)
 	end
 end
