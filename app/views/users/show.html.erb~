@@ -16,7 +16,6 @@
 	   <% micropost.commends.each do |commend|%>
 	   </tr>
   	   <td class="commend">
-
 	   <div style="text-indent:2em">
    	    <span class="content"> 
 		<%= link_to commend.user.name,user_path(commend.user)%>: 
@@ -24,7 +23,7 @@
 		
 		
 		<div style="text-indent:2em">
-		<%= "commented at "%>
+		<%= "commented "%>
    	  
 	    <span class="timestamp">
 	        at <%= commend.created_at %>

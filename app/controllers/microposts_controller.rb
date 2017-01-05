@@ -31,6 +31,6 @@ end
 	
 	def destroy  
 	  @micropost.destroy	  
-	  redirect_to root_path
+	  render 'pages/home'
 	end
 end
