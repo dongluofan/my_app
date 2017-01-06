@@ -9,9 +9,7 @@
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
 	<% end %>
-	<table class="commend">	
-	<% render @commend %>
-	</table>
+	
 
 	<% if current_user!=nil %>
 	 <%= form_for([micropost,@commend]) do |f|%>

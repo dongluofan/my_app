@@ -12,29 +12,29 @@
   	<td class="micropost">
    	<h3><span class="title">Title: <%= micropost.title %></span><br/>
    	 <span class="content"><%= micropost.content %></span><br/></h3>
-	 <%if micropost.commends.count!= 0%>
-	   <% micropost.commends.each do |commend|%>
+	 <%if micropost.comments.count!= 0%>
+	   <% micropost.comments.each do |comment|%>
 	   </tr>
-  	   <td class="commend">
+  	   <td class="comment">
 	   <div style="text-indent:2em">
    	    <span class="content"> 
-		<%= link_to commend.user.name,user_path(commend.user)%>: 
-		<%= commend.content %></span></div>	
+		<%= link_to comment.user.name,user_path(comment.user)%>: 
+		<%= comment.content %></span></div>	
 		
 		<div style="text-indent:2em">
 		<%= "commented "%>	  
 	    <span class="timestamp">
-	        at <%= commend.created_at %>
-	   <% if current_user == commend.user %>
-	         <%= link_to "Delete",commend, :method => :delete,
+	        at <%= comment.created_at %>
+	   <% if current_user == comment.user %>
+	         <%= link_to "Delete",comment, :method => :delete,
 						  :confirm => "Are you sure?",	
-						:title => commend.content %><br/></div>
+						:title => comment.content %><br/></div>
 	   <% end %>
 	  <% end %></div>
 	<% end %>
 	<br/>
    	 <span class="timestamp">
-	Posted at <%= micropost.created_at %><br/> <%= micropost.commends.count%>
+	Posted at <%= micropost.created_at %><br/> <%= micropost.comments.count%>
 	<%="comments"%>
 	<% if current_user == micropost.user %>
 	  <%= link_to "Delete",micropost, :method => :delete,
@@ -42,7 +42,7 @@
 						:title => micropost.content %>
 	<% end %>
 	<% if current_user!=nil %>
-	   <%= form_for([micropost,@commend]) do |f|%>
+	   <%= form_for([micropost,@comment]) do |f|%>
 	    <div class="field">
  	    <%= f.text_field :content %></div>
 	      <button class = "btn" type="submit">
@@ -51,8 +51,8 @@
 	      <% end %>
              <% end %>
              </span>
-            </td>
-          </tr>
+            
+          </tr></td>
 	<% end %>	   
      <% end %>
    </td></table>

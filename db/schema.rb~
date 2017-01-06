@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(:version => 20170104020925) do
 
+  create_table "commands", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"

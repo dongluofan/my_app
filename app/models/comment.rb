@@ -6,5 +6,5 @@ class Comment < ActiveRecord::Base
   validates :content, :presence => true, :length => {:maximum => 50}
   validates :user_id, :presence =>true
   validates :micropost_id, :presence =>true
-  default_scope :order => 'commends.created_at DESC'
+  default_scope :order => 'comments.created_at DESC'
 end

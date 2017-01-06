@@ -12,7 +12,7 @@
 	
 
 	<% if current_user!=nil %>
-	 <%= form_for([micropost,@commend]) do |f|%>
+	 <%= form_for([micropost,@comment]) do |f|%>
 	<div class="field">
  	  <%= f.text_field :content %></div>
 	<button class = "btn" type="submit">

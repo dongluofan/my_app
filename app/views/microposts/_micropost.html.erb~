@@ -9,8 +9,8 @@
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
 	<% end %>
-	<table class="commend">	
-	<% render @commend %>
+	<table class="comment">	
+	<% render @comment %>
 	</table>
 
 	<% if current_user!=nil %>

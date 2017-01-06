@@ -32,7 +32,6 @@ public
      @microposts = @user.microposts	
      @commend =Commend.new
      @title = @user.name
-    
      respond_to do |format|
      format.html # show.html.erb
      format.json { render json: @users } 

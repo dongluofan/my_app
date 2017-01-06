@@ -1,0 +1,13 @@
+
+	<tr>
+  	<td class="comment">
+   	<span class="content">Comment:<%= comment.content %></span><br/>	
+   	 <span class="timestamp">
+	commented at <%= comment.created_at %><br/>
+	<% if current_user == comment.user %>
+	  <%= link_to "Delete",comment, :method => :delete,
+						  :confirm => "Are you sure?",	
+						:title => comment.content %>
+	<% end %>
+	
+ 

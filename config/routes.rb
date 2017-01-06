@@ -1,12 +1,11 @@
 MyProject::Application.routes.draw do
 resources :microposts do
-   resources :commends
+   resources :comments
 	
 end
-resources :commends, :only => [:create, :destroy]
+resources :comments, :only => [:create, :destroy]
 resources :microposts, :only => [:create, :destroy]
 resources :sessions, :only => [:new, :create, :destroy]
-match'/intertact', :to =>'commends#new'
 match'/signin', :to=>'sessions#new'
 match'/signout', :to=>'sessions#destroy'
 match'/signup', :to=>'users#new'

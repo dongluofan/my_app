@@ -30,7 +30,7 @@ public
   def show
      @user = User.find(params[:id])
      @microposts = @user.microposts	
-     @commend =Commend.new
+     @comment =Comment.new
      @title = @user.name
      respond_to do |format|
      format.html # show.html.erb
