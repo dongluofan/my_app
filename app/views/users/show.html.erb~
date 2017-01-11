@@ -4,16 +4,14 @@
     <td class="main">
 	<h1><%= @user.name %></h1>
 	  <% if !@user.microposts.nil? %>
-	    <table class="microposts">
-	      <% @microposts.each do |micropost| %>
-
-  </tr>
-	<tr>
+	    <table class="microposts"></tr>
+	      <% @microposts.each do |micropost| %></td>
+     	<tr>
   	<td class="micropost">
    	<h3><span class="title">Title: <%= micropost.title %></span><br/>
    	 <span class="content"><%= micropost.content %></span><br/></h3>
 	 <%if micropost.comments.count!= 0%>
-	   <% micropost.comments.each do |comment|%>
+	   <% micropost.comments.each do |comment|%></td>
 	   </tr>
   	   <td class="comment">
 	   <div style="text-indent:2em">
@@ -32,30 +30,30 @@
 	   <% end %>
 	  <% end %></div>
 	<% end %>
-	<br/>
+	
    	 <span class="timestamp">
 	Posted at <%= micropost.created_at %><br/> <%= micropost.comments.count%>
-	<%="comments"%>
+	<%="comments"%></span>
 	<% if current_user == micropost.user %>
 	  <%= link_to "Delete",micropost, :method => :delete,
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
-	<% end %> </tr>
+	<% end %>
 	<% if current_user!=nil %>
 	   <%= form_for([micropost,@comment]) do |f|%>
 	    <div class="field">
  	    <%= f.text_field :content %></div>
 	      <button class = "btn" type="submit">
   		 Comment
-	      </button>
-	      <% end %>
+	      </button></tr></td>
+	      <% end %> </td>
              <% end %>
-             </span>
-            
-         </td>
+             
+           
+          
 	<% end %>	   
      <% end %>
-   </td></table>
+   </table>
     <td class="sidebar round">
 	<strong>Name</strong> <%= @user.name %><br/>
 	<strong>Email</strong> <%= @user.email %><br/>

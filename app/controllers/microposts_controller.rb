@@ -14,11 +14,7 @@ before_filter :authorized_user, :only => [:destroy]
 	redirect_to root_path
   end
 end
-
-
   public
-
-
 	def create
 	  @micropost = current_user.microposts.build(params[:micropost])	  
 	  if @micropost.save

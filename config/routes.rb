@@ -1,7 +1,6 @@
 MyProject::Application.routes.draw do
 resources :microposts do
    resources :comments
-	
 end
 resources :comments, :only => [:create, :destroy]
 resources :microposts, :only => [:create, :destroy]

@@ -1,13 +1,13 @@
 
 	<tr>
-  	<td class="commend">
-   	<span class="content">Comment:<%= commend.content %></span><br/>	
+  	<td class="comment">
+   	<span class="content">Comment:<%= comment.content %></span><br/>	
    	 <span class="timestamp">
-	commented at <%= commend.created_at %><br/>
-	<% if current_user == commend.user %>
-	  <%= link_to "Delete",commend, :method => :delete,
+	commented at <%= comment.created_at %><br/>
+	<% if current_user == comment.user %>
+	  <%= link_to "Delete",comment, :method => :delete,
 						  :confirm => "Are you sure?",	
-						:title => commend.content %>
+						:title => comment.content %>
 	<% end %>
 	
  

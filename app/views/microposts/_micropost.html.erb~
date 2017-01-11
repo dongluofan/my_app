@@ -9,19 +9,9 @@
 						  :confirm => "Are you sure?",	
 						:title => micropost.content %>
 	<% end %>
-	<table class="comment">	
-	<% render @comment %>
-	</table>
-
-	<% if current_user!=nil %>
-	 <%= form_for([micropost,@commend]) do |f|%>
-	<div class="field">
- 	  <%= f.text_field :content %></div>
-	<button class = "btn" type="submit">
-  		 Comment
-	</button>
-	<% end %>
-       <% end %>
+	
+	
+    
   
     </span>
   </td>

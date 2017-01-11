@@ -1,5 +1,4 @@
 
-
 <% if current_user.nil? %>
 	
 	<%= link_to 'Sign up now!', signup_path, :class => 'signup_button round' %>
@@ -24,5 +23,26 @@
 	    </td>
 	  </tr>
 	<% end %>
-	<%= link_to "Show all users", users_path %>
+	<%= link_to "Show all users", users_path %><br/> 
+	<% @users.each do |user| %>
+	<table class="micropost">
+	
+	 <% user.microposts.each do |micropost| %>
+	  <tr>
+ 	 <td class="micropost">
+  	 <span class="title">Title:<%= micropost.title %></span><br/>
+   	 <span class="content"><%= micropost.content %></span><br/> 
+	POST by <%= link_to micropost.user.name,user_path(micropost.user)%>
+ 	 </td>
+	</tr>
+	<% end %>
+	</table>
+	
+	<% end %>
+
+
+
+
+
+
 

@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
-
 before_filter :authorized_user, :only => [:destroy]
-
   private
- 
-  
-  def authorized_user
+     def authorized_user
     @comment = Comment.find(params[:id])
     if @comment.user != current_user
 	redirect_to user
