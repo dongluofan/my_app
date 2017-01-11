@@ -8,8 +8,8 @@
 	      <% @microposts.each do |micropost| %></td>
      	<tr>
   	<td class="micropost">
-   	<h3><span class="title">Title: <%= micropost.title %></span><br/>
-   	 <span class="content"><%= micropost.content %></span><br/></h3>
+   	<h3><span class="title"><%= micropost.title %></h3></span>
+   	 <span class="content"><%= micropost.content %></span><br/>
 	 <%if micropost.comments.count!= 0%>
 	   <% micropost.comments.each do |comment|%></td>
 	   </tr>
@@ -28,6 +28,7 @@
 						  :confirm => "Are you sure?",	
 						:title => comment.content %><br/></div>
 	   <% end %>
+
 	  <% end %></div>
 	<% end %>
 	
